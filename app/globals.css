@@ -139,4 +139,13 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Fix: browser-native input backgrounds don't inherit CSS vars,
+     so we force them to match the themed background/foreground. */
+  input,
+  textarea,
+  select {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
 }

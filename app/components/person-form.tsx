@@ -65,7 +65,7 @@ export default function PersonForm({ initialData, onSuccess, onCancel }: PersonF
       {error && <div className="p-4 bg-red-50 text-red-700 rounded-md font-medium border border-red-200">{error}</div>}
 
       <div className="space-y-2">
-        <Label htmlFor="name" className="text-base font-bold text-gray-900">Name *</Label>
+        <Label htmlFor="name" className="text-base font-bold text-gray-900">Name</Label>
         <Input
           id="name"
           name="name"
@@ -77,7 +77,7 @@ export default function PersonForm({ initialData, onSuccess, onCancel }: PersonF
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="email" className="text-base font-bold text-gray-900">Email *</Label>
+        <Label htmlFor="email" className="text-base font-bold text-gray-900">Email</Label>
         <Input
           id="email"
           name="email"

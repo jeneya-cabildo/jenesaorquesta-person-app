@@ -18,6 +18,18 @@ interface FormComponentProps {
   form: UseFormReturn<UserFormData>
 }
 
+const inputClass = [
+  "bg-white dark:bg-slate-800",
+  "text-gray-900 dark:text-slate-100",
+  "placeholder:text-gray-400 dark:placeholder:text-slate-500",
+  "border border-gray-300 dark:border-slate-600",
+  "focus-visible:ring-blue-500",
+].join(" ")
+
+const labelClass = "text-gray-700 dark:text-slate-200"
+const descClass  = "text-gray-500 dark:text-slate-400"
+const errorClass = "text-red-600 dark:text-red-400 text-sm mt-1"
+
 export function UserForm({ form }: FormComponentProps) {
   return (
     <Form {...form}>
@@ -26,18 +38,16 @@ export function UserForm({ form }: FormComponentProps) {
         name="name"
         render={({ field, fieldState }) => (
           <FormItem>
-            <FormLabel>Name</FormLabel>
+            <FormLabel className={labelClass}>Name</FormLabel>
             <FormControl>
-              <Input placeholder="John Doe" {...field} />
+              <Input placeholder="John Doe" className={inputClass} {...field} />
             </FormControl>
-            <FormDescription>
+            <FormDescription className={descClass}>
               Enter full name.
             </FormDescription>
             {fieldState.error && (
-                            <p className="text-red-600 text-sm mt-1">
-                                {String(fieldState.error) || ''}
-                            </p>
-                        ) }
+              <p className={errorClass}>{String(fieldState.error.message) || ''}</p>
+            )}
           </FormItem>
         )}
       />
@@ -46,18 +56,16 @@ export function UserForm({ form }: FormComponentProps) {
         name="email"
         render={({ field, fieldState }) => (
           <FormItem>
-            <FormLabel>Email</FormLabel>
+            <FormLabel className={labelClass}>Email</FormLabel>
             <FormControl>
-              <Input type="email" placeholder="john@example.com" {...field} />
+              <Input type="email" placeholder="john@example.com" className={inputClass} {...field} />
             </FormControl>
-            <FormDescription>
+            <FormDescription className={descClass}>
               Enter email address.
             </FormDescription>
             {fieldState.error && (
-                            <p className="text-red-600 text-sm mt-1">
-                                {String(fieldState.error) || ''}
-                            </p>
-                        ) }
+              <p className={errorClass}>{String(fieldState.error.message) || ''}</p>
+            )}
           </FormItem>
         )}
       />
@@ -66,18 +74,16 @@ export function UserForm({ form }: FormComponentProps) {
         name="phoneNumber"
         render={({ field, fieldState }) => (
           <FormItem>
-            <FormLabel>Phone Number</FormLabel>
+            <FormLabel className={labelClass}>Phone Number</FormLabel>
             <FormControl>
-              <Input placeholder="04xxxxxxxx" {...field} />
+              <Input placeholder="04xxxxxxxx" className={inputClass} {...field} />
             </FormControl>
-            <FormDescription>
+            <FormDescription className={descClass}>
               Enter phone number in Australian phone number format.
             </FormDescription>
             {fieldState.error && (
-                            <p className="text-red-600 text-sm mt-1">
-                                {String(fieldState.error) || ''}
-                            </p>
-                        ) }
+              <p className={errorClass}>{String(fieldState.error.message) || ''}</p>
+            )}
           </FormItem>
         )}
       />
